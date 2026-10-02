@@ -1,0 +1,56 @@
+{
+  "accuracy": 0.8396698349174587,
+  "roc_auc": 0.9204849849849849,
+  "macro_f1": 0.8396529715986845,
+  "per_class": {
+    "fake": {
+      "precision": 0.8472151251916198,
+      "recall": 0.829,
+      "f1-score": 0.8380085923679556,
+      "support": 2000.0
+    },
+    "real": {
+      "precision": 0.8324350808427241,
+      "recall": 0.8503503503503503,
+      "f1-score": 0.8412973508294133,
+      "support": 1998.0
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "fake",
+      "real"
+    ],
+    "matrix": [
+      [
+        1658,
+        342
+      ],
+      [
+        299,
+        1699
+      ]
+    ]
+  },
+  "epochs_trained": 9,
+  "best_val_loss": 0.4095996916294098,
+  "train_minutes": 22.9,
+  "params": 1208161,
+  "config": {
+    "data_dir": "/content/A_TienXuLyAnh/A_TienXuLyAnh/Dataset_Final",
+    "output_dir": "/content/drive/MyDrive/cnn_output",
+    "img_size": 224,
+    "batch_size": 32,
+    "epochs": 30,
+    "lr": 0.001,
+    "patience": 6,
+    "base_filters": 32,
+    "no_augment": false,
+    "seed": 42
+  },
+  "label_mapping": {
+    "fake": 0,
+    "real": 1,
+    "note": "đầu ra sigmoid = xác suất ảnh THẬT"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "dataset": "D:\\PhanBietAnh\\A_TienXuLyAnh\\Dataset_Final",
+  "feature_groups": {
+    "HOG": 1296,
+    "LBP": 10,
+    "HSV hist": 48,
+    "FFT": 32
+  },
+  "feature_count": 1386,
+  "class_names": [
+    "Real",
+    "AI-Generated"
+  ],
+  "label_mapping": {
+    "Real": 0,
+    "AI-Generated": 1
+  },
+  "SVM": {
+    "parameters": {
+      "kernel": "rbf",
+      "C": 10,
+      "gamma": "scale",
+      "calibration": "sigmoid",
+      "cv": 3
+    },
+    "validation": {
+      "accuracy": 0.8816666666666667,
+      "precision": 0.8894557823129252,
+      "recall": 0.8716666666666667,
+      "f1": 0.8804713804713805,
+      "roc_auc": 0.9515125000000002,
+      "confusion_matrix": [
+        [
+          1070,
+          130
+        ],
+        [
+          154,
+          1046
+        ]
+      ]
+    },
+    "test": {
+      "accuracy": 0.8804402201100551,
+      "precision": 0.8870803662258393,
+      "recall": 0.872,
+      "f1": 0.8794755421079173,
+      "roc_auc": 0.9535070070070071,
+      "confusion_matrix": [
+        [
+          1776,
+          222
+        ],
+        [
+          256,
+          1744
+        ]
+      ]
+    }
+  },
+  "Logistic_Regression": {
+    "parameters": {
+      "C": 1.0,
+      "max_iter": 2000
+    },
+    "validation": {
+      "accuracy": 0.8520833333333333,
+      "precision": 0.8626609442060086,
+      "recall": 0.8375,
+      "f1": 0.8498942917547568,
+      "roc_auc": 0.9248069444444443,
+      "confusion_matrix": [
+        [
+          1040,
+          160
+        ],
+        [
+          195,
+          1005
+        ]
+      ]
+    },
+    "test": {
+      "accuracy": 0.8546773386693347,
+      "precision": 0.8552829243865798,
+      "recall": 0.854,
+      "f1": 0.8546409807355516,
+      "roc_auc": 0.9287685185185186,
+      "confusion_matrix": [
+        [
+          1709,
+          289
+        ],
+        [
+          292,
+          1708
+        ]
+      ]
+    }
+  }
+}
