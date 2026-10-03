@@ -65,7 +65,7 @@ class SklearnPredictor:
 
 class CNNPredictor:
     IMG_SIZE = 224
-    NORMALIZE = "rescale"
+    NORMALIZE = "none"
 
     def __init__(self, path):
         self.path = Path(path)
@@ -192,45 +192,26 @@ class CNNPredictor:
             output = output.ravel()
 
         if output.size == 1:
+            # Model train: sigmoid = xác suất ảnh THẬT
             value = float(output[0])
 
             if 0.0 <= value <= 1.0:
-                p_ai = value
+                p_real = value
             else:
-                value = np.clip(
-                    value,
-                    -50,
-                    50
-                )
+                value = float(np.clip(value, -50, 50))
+                p_real = 1.0 / (1.0 + np.exp(-value))
 
-                p_ai = 1.0 / (
-                    1.0 + np.exp(-value)
-                )
+            p_ai = 1.0 - p_real
 
         else:
-            output = output.astype(
-                np.float64
-            )
+            output = output.astype(np.float64)
+            output = output - np.max(output)
+            exp_output = np.exp(output)
+            probabilities = exp_output / exp_output.sum()
 
-            output = output - np.max(
-                output
-            )
+            # index 0 = fake (AI), index 1 = real
+            p_ai = float(probabilities[0])
 
-            exp_output = np.exp(
-                output
-            )
-
-            probabilities = (
-                exp_output /
-                exp_output.sum()
-            )
-
-            p_ai = float(
-                probabilities[1]
-            )
-
-        label = int(
-            p_ai >= 0.5
-        )
+        label = int(p_ai >= 0.5)
 
         return label, p_ai
