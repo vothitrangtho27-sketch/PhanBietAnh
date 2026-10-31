@@ -10,9 +10,8 @@ from predictors import CNNPredictor, SklearnPredictor
 
 BASE = Path(__file__).parent / "models"
 
-# Khi B, C, D nộp file: thả vào thư mục models/ đúng tên bên dưới là chạy.
 MODEL_REGISTRY = {
-    "CNN": {"file": "cnn_model.keras",              # hoặc .h5 / .pt / .pth
+    "CNN": {"file": "cnn_model.keras",
             "abbr": "CNN", "desc": "Mạng nơ-ron tích chập",
             "build": lambda p: CNNPredictor(p)},
     "SVM": {"file": "svm.joblib",
@@ -47,13 +46,15 @@ def load_model(name):
         return None, f"Không tải được mô hình: {e}"
 
 
-def run_model(name, img):
+# Nhận thêm tham số shared_feats để tránh tính toán lại đặc trưng
+def run_model(name, img, shared_feats=None):
     model, err = load_model(name)
     if err:
         return {"error": err}
     try:
         t0 = time.time()
-        label, p_ai = model.predict(img)
+        # Truyền shared_feats cho tất cả các mô hình (CNN sẽ tự động bỏ qua)
+        label, p_ai = model.predict(img, precomputed_features=shared_feats)
         return {"label": label, "p_ai": p_ai, "ms": (time.time() - t0) * 1000}
     except Exception as e:
         return {"error": f"Lỗi khi dự đoán: {e}"}
@@ -119,7 +120,15 @@ with right:
                     unsafe_allow_html=True)
     else:
         with st.spinner("Đang phân tích ảnh..."):
-            results = {n: run_model(n, img) for n in selected}
+            # 1. Trích xuất đặc trưng 1 lần duy nhất (nếu có chạy SVM, LR hoặc RF)
+            sklearn_models = ["SVM", "Logistic Regression", "Random Forest"]
+            shared_feats = None
+            if any(m in selected for m in sklearn_models):
+                shared_feats = extract_features_rf(img)
+
+            # 2. Chạy dự đoán (truyền shared_feats vào)
+            results = {n: run_model(n, img, shared_feats) for n in selected}
+
         ok = {n: r for n, r in results.items() if "error" not in r}
         if not ok:
             st.warning("Chưa có mô hình nào sẵn sàng để dự đoán. "

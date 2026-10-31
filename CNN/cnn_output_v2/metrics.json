@@ -1,0 +1,55 @@
+{
+  "accuracy": 0.7751375687843922,
+  "roc_auc": 0.8476023523523524,
+  "macro_f1": 0.7747631746580825,
+  "per_class": {
+    "fake": {
+      "precision": 0.7547431744562703,
+      "recall": 0.8155,
+      "f1-score": 0.78394616678683,
+      "support": 2000.0
+    },
+    "real": {
+      "precision": 0.799129014697877,
+      "recall": 0.7347347347347347,
+      "f1-score": 0.765580182529335,
+      "support": 1998.0
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "fake",
+      "real"
+    ],
+    "matrix": [
+      [
+        1631,
+        369
+      ],
+      [
+        530,
+        1468
+      ]
+    ]
+  },
+  "epochs_trained": 5,
+  "best_val_loss": 0.5071462988853455,
+  "train_minutes": 37.8,
+  "params": 311601,
+  "config": {
+    "data_dir": "C:\\Users\\ADMIN\\Downloads\\PhanBietAnh-main (1)\\PhanBietAnh-main\\A_TienXuLyAnh\\Dataset_Final2",
+    "output_dir": "cnn_output_v2",
+    "img_size": 224,
+    "batch_size": 32,
+    "epochs": 5,
+    "lr": 0.001,
+    "patience": 6,
+    "base_filters": 16,
+    "no_augment": false,
+    "seed": 42
+  },
+  "label_mapping": {
+    "fake": 0,
+    "real": 1
+  }
+}

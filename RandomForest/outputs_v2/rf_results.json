@@ -1,0 +1,179 @@
+{
+  "best_params": {
+    "max_depth": null,
+    "max_features": "sqrt",
+    "min_samples_leaf": 1,
+    "n_estimators": 200
+  },
+  "oob_accuracy": 0.7521329802883201,
+  "val": {
+    "accuracy": 0.76625,
+    "precision": 0.7411320754716981,
+    "recall": 0.8183333333333334,
+    "f1": 0.7778217821782178,
+    "roc_auc": 0.8409003472222222,
+    "confusion_matrix": [
+      [
+        857,
+        343
+      ],
+      [
+        218,
+        982
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.7656328164082041,
+    "precision": 0.7473243369008842,
+    "recall": 0.803,
+    "f1": 0.7741624487828392,
+    "roc_auc": 0.8481773023023023,
+    "confusion_matrix": [
+      [
+        1455,
+        543
+      ],
+      [
+        394,
+        1606
+      ]
+    ]
+  },
+  "feature_importance_by_group": {
+    "HOG": 0.7719154713987852,
+    "LBP": 0.05891528739883458,
+    "HSV hist": 0.06360630642866225,
+    "FFT": 0.10556293477371796
+  },
+  "grid_log": [
+    {
+      "max_depth": null,
+      "max_features": "sqrt",
+      "min_samples_leaf": 1,
+      "n_estimators": 200,
+      "oob_acc": 0.7521329802883201,
+      "val_f1": 0.7778217821782178
+    },
+    {
+      "max_depth": null,
+      "max_features": "sqrt",
+      "min_samples_leaf": 1,
+      "n_estimators": 400,
+      "oob_acc": 0.7588996763754046,
+      "val_f1": 0.7725832012678289
+    },
+    {
+      "max_depth": null,
+      "max_features": "sqrt",
+      "min_samples_leaf": 2,
+      "n_estimators": 200,
+      "oob_acc": 0.7550014710208885,
+      "val_f1": 0.7745253164556962
+    },
+    {
+      "max_depth": null,
+      "max_features": "sqrt",
+      "min_samples_leaf": 2,
+      "n_estimators": 400,
+      "oob_acc": 0.7614739629302736,
+      "val_f1": 0.772996446900908
+    },
+    {
+      "max_depth": null,
+      "max_features": "log2",
+      "min_samples_leaf": 1,
+      "n_estimators": 200,
+      "oob_acc": 0.7375698734922036,
+      "val_f1": 0.7534408179315769
+    },
+    {
+      "max_depth": null,
+      "max_features": "log2",
+      "min_samples_leaf": 1,
+      "n_estimators": 400,
+      "oob_acc": 0.7400706090026479,
+      "val_f1": 0.7601880877742947
+    },
+    {
+      "max_depth": null,
+      "max_features": "log2",
+      "min_samples_leaf": 2,
+      "n_estimators": 200,
+      "oob_acc": 0.7388937922918506,
+      "val_f1": 0.7581596539520251
+    },
+    {
+      "max_depth": null,
+      "max_features": "log2",
+      "min_samples_leaf": 2,
+      "n_estimators": 400,
+      "oob_acc": 0.7408061194468961,
+      "val_f1": 0.76171875
+    },
+    {
+      "max_depth": 30,
+      "max_features": "sqrt",
+      "min_samples_leaf": 1,
+      "n_estimators": 200,
+      "oob_acc": 0.7522800823771697,
+      "val_f1": 0.7717348154029376
+    },
+    {
+      "max_depth": 30,
+      "max_features": "sqrt",
+      "min_samples_leaf": 1,
+      "n_estimators": 400,
+      "oob_acc": 0.7573551044424831,
+      "val_f1": 0.7733755942947702
+    },
+    {
+      "max_depth": 30,
+      "max_features": "sqrt",
+      "min_samples_leaf": 2,
+      "n_estimators": 200,
+      "oob_acc": 0.7552956751985879,
+      "val_f1": 0.7753164556962026
+    },
+    {
+      "max_depth": 30,
+      "max_features": "sqrt",
+      "min_samples_leaf": 2,
+      "n_estimators": 400,
+      "oob_acc": 0.7605913503971756,
+      "val_f1": 0.7751876728565784
+    },
+    {
+      "max_depth": 30,
+      "max_features": "log2",
+      "min_samples_leaf": 1,
+      "n_estimators": 200,
+      "oob_acc": 0.7354368932038835,
+      "val_f1": 0.7534300274402195
+    },
+    {
+      "max_depth": 30,
+      "max_features": "log2",
+      "min_samples_leaf": 1,
+      "n_estimators": 400,
+      "oob_acc": 0.7407325684024714,
+      "val_f1": 0.7615686274509804
+    },
+    {
+      "max_depth": 30,
+      "max_features": "log2",
+      "min_samples_leaf": 2,
+      "n_estimators": 200,
+      "oob_acc": 0.7388937922918506,
+      "val_f1": 0.7562893081761006
+    },
+    {
+      "max_depth": 30,
+      "max_features": "log2",
+      "min_samples_leaf": 2,
+      "n_estimators": 400,
+      "oob_acc": 0.7411003236245954,
+      "val_f1": 0.7608610567514678
+    }
+  ]
+}
